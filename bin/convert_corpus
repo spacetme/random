@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+$:.unshift File.join(File.dirname(File.dirname(__FILE__)), 'lib')
+
+require 'corpus_convertor'
+require 'json'
+
+puts CorpusConvertor.convert(ARGV[0]).to_json
+

@@ -1,0 +1,21 @@
+{
+  "name": "random",
+  "version": "0.0.0",
+  "description": "Random Text Generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "watchify -t coffeeify --extension=.coffee javascripts/main.coffee -o built_javascripts/random_text.js"
+  },
+  "author": "Thai Pangsakulyanont <org.yi.dttvb@gmail.com> (http://dt.in.th/)",
+  "license": "-",
+  "devDependencies": {
+    "coffee-script": "^1.8.0",
+    "coffeeify": "^0.7.0",
+    "lodash": "^2.4.1",
+    "watchify": "^2.1.1"
+  },
+  "dependencies": {
+    "jquery": "^2.1.1"
+  }
+}
