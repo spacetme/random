@@ -6,24 +6,11 @@ SentenceGenerator = require('../lib/sentence_generator')
 
 global.onmessage = (event) ->
 
-  options = event.data
-
-  xhr = new XMLHttpRequest
-  xhr.onprogress = (e) -> onprogress(e)
-  xhr.onload = -> onload(xhr, options)
-  xhr.open 'GET', options.model, true
-  xhr.send null
+  { options, model } = event.data
+  run(model, options)
 
 
-onprogress = (e) ->
-
-  if e.lengthComputable
-    postMessage({ progress: (e.loaded / e.total) * 0.3 })
-
-
-onload = (xhr, options) ->
-
-  model = JSON.parse(xhr.responseText)
+run = (model, options) ->
 
   generator = new SentenceGenerator(model)
   postMessage({ info: model.info })
@@ -35,6 +22,7 @@ onload = (xhr, options) ->
   completedSentences = 0
   wordsInIncompleteSentence = 0
 
+  postMessage({ begin: null })
   loop
     text = generator.generate()
     if text is " "
@@ -52,7 +40,7 @@ onload = (xhr, options) ->
     else
       wordsInIncompleteSentence += 1
     progress = (completedSentences + (1 - Math.exp(wordsInIncompleteSentence / -4))) / totalSentences
-    postMessage({ text, progress: 0.3 + progress * 0.7 })
+    postMessage({ text, progress })
 
-  postMessage({ progress: 1 })
+  postMessage({ progress: 1, end: null })
 
