@@ -13,7 +13,9 @@ $ ->
       model: resolve("models/#{$('#model').val()}.json")
     )(
       text: (text) ->
-        $('#result p:last').append(text)
+        $('#result p:last').append(text)[0].normalize()
+      progress: (progress) ->
+        $('#progress').css('width', "#{Math.round(progress * 1000) / 10}%")
       newParagraph: (text) ->
         console.log('new paragraph!')
         $('#result').append('<p></p>')
