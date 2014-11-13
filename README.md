@@ -31,10 +31,10 @@ middleman deploy
 ```
 
 
-Backend: Generating a JSON Data File from Corpus
-------------------------------------------------
+Backend: Generating a JSON Model File from Corpus
+-------------------------------------------------
 
 ```bash
-bin/convert_corpus path/to/corpus
+bin/convert_corpus path/to/corpus > source/models/filename.json
 ```
 
