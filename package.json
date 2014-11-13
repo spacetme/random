@@ -4,18 +4,26 @@
   "description": "Random Text Generator",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "watchify -t coffeeify --extension=.coffee javascripts/main.coffee -o built_javascripts/random_text.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Thai Pangsakulyanont <org.yi.dttvb@gmail.com> (http://dt.in.th/)",
   "license": "-",
   "devDependencies": {
     "coffee-script": "^1.8.0",
     "coffeeify": "^0.7.0",
-    "lodash": "^2.4.1",
+    "gulp": "^3.8.10",
     "watchify": "^2.1.1"
   },
   "dependencies": {
-    "jquery": "^2.1.1"
-  }
+    "jquery": "^2.1.1",
+    "lodash": "^2.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spacetme/random.git"
+  },
+  "bugs": {
+    "url": "https://github.com/spacetme/random/issues"
+  },
+  "homepage": "https://github.com/spacetme/random"
 }

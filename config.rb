@@ -42,7 +42,7 @@ end
 
 # Reload the browser automatically whenever files change
 configure :development do
-  activate :livereload
+  # activate :livereload
 end
 
 # Deployment
@@ -66,7 +66,8 @@ set :images_dir, 'images'
 # Bower
 sprockets.append_path File.join root, 'bower_components'
 sprockets.append_path File.join root, 'built_javascripts'
-sprockets.import_asset 'random_text'
+sprockets.import_asset 'web'
+sprockets.import_asset 'worker'
 
 # Build-specific configuration
 configure :build do

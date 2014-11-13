@@ -2,10 +2,36 @@
 title: โปรแกรมสร้างข้อความภาษาไทยมั่วๆ
 ---
 
-h1 โปรแกรมสร้างข้อความภาษาไทยมั่วๆ
-p เราจะสร้างข้อความภาษาไทยมั่วๆ ให้ท่าน
+.container
+  h1 โปรแกรมสร้างข้อความภาษาไทยมั่วๆ
+  p เราจะสร้างข้อความภาษาไทยมั่วๆ ให้ท่าน
+  .row
+    .col-sm-6.col-md-5.col-lg-4
+      h2 ตั้งค่า
+      .well
+        form.settings#settings data-worker-path=asset_path(:js, "worker")
+          .clearfix.settings--row
+            span.settings--text-left สร้าง
+            span.settings--control-center: input.form-control#paragraphs type="number" value="1"
+            span.settings--text-right ย่อหน้า
+          .clearfix.settings--row
+            span.settings--text-left ย่อหน้าละ
+            span.settings--control-center: input.form-control#sentences type="number" value="10"
+            span.settings--text-right ประโยค
+          .clearfix.settings--row
+            h3 ต้นแบบ
+            select.form-control#model multiple="multitle"
+              option value="bodyslam" selected="selected" Bodyslam
+              option value="3kingdom" สามก๊ก
+          button.btn.btn-primary.btn-lg.btn-block type="submit" สร้างข้อความ
+          
+    .col-sm-6.col-md-7.col-lg-8
+      h2 เกี่ยวกับข้อมูลต้นแบบ
+      .well
+        #info
+      h2 ผลลัพธ์
+      .well
+        #result
 
-p#result
-
-= javascript_include_tag "random_text"
+= javascript_include_tag "web"
 
