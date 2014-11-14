@@ -55,23 +55,3 @@ pick = (weights) ->
     current += weight
     return key if picked <= current
 
-###
-#  weights = trie.map do |word, hash|
-    weight = 0.01 ** 2
-    (1..history.length).each do |n|
-      weight += (hash[history.last(n)] * (n ** 2)) ** 2
-    end
-    [word, weight * (word == " " ? space_prob : 1.0)]
-  end
-
-  # smoothen the weight
-  weights.sort_by!(&:last)
-  value = 0.0
-  weights.each do |array|
-    value += (array[1] - value) / 5.0
-    array[1] = value
-  end
-
-  weights
-###
-
